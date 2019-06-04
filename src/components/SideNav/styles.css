@@ -1,0 +1,21 @@
+.sidenav-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    top: calc(50% - 80px);
+    border-radius: 10px;
+    left: calc(6.25% - 40px);
+}
+
+.sidenav-icon {
+    height: 50px;
+    border-radius: 50%;
+}
+
+.sidenav-icon:hover {
+    cursor: pointer;
+}

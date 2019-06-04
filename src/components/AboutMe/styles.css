@@ -1,0 +1,27 @@
+.profile-container {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(34, 25, 22, 0.7);
+}
+
+.profile-info-container {
+    width: 75%;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 2em;
+    background: rgba(237,227,216,0.75)
+}
+
+@media only screen and (max-width: 815px) {
+    .profile-info-container {
+        width: 100%;
+        font-size: 1em;
+    }
+}

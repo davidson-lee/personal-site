@@ -1,16 +1,14 @@
 import { LAYOUT_TYPES } from '../types'
 
 const INITIAL_STATE = {
-    headerVisible: false
+    activeComponent: (window.scrollY / (window.innerHeight - 100)),
 }
 
 export default function (state = INITIAL_STATE, action) {
     switch(action.type) {
-        case LAYOUT_TYPES.SET_HEADER:
-            if (action.payload !== state.headerVisible)
-                return {...state, headerVisible: action.payload };
-            else break;
+        case LAYOUT_TYPES.SET_ACTIVE:
+            return {...state, activeComponent: action.payload };
         default:
-            return state;
+            return {...state};
     }
 }
