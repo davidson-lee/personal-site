@@ -2,6 +2,7 @@ import React from 'react'
 import posed from 'react-pose'
 import Icons from '../../assets/icons'
 import Backgrounds from '../../assets/backgrounds'
+import { connect } from 'react-redux'
 import './styles.css'
 
 const PosedLabel = posed.div({
@@ -79,9 +80,9 @@ const PosedNavIcon = posed.img({
     },
 })
 
-const HeroLanding = ({ componentRefs, scrollToRef }) => {
+const HeroLanding = ({ isMobile, componentRefs, scrollToRef }) => {
     return (
-        <div ref={componentRefs[0].ref} className='hero-container' style={{height: window.innerHeight}}>
+        <div ref={componentRefs[0].ref} className='hero-container' style={{height: window.innerWidth < 810 ? window.innerHeight : '100vh'}}>
             <video id='background-video' loop autoPlay muted>
                 <source src={Backgrounds.hero} type='video/mp4' />
             </video> 
@@ -108,4 +109,10 @@ const HeroLanding = ({ componentRefs, scrollToRef }) => {
     )
 }
 
-export default HeroLanding;
+const mapStateToProps = (state) => {
+    return {
+      isMobile: state.layout.isMobile
+    }
+}
+
+export default connect(mapStateToProps)(HeroLanding);

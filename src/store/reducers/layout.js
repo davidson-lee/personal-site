@@ -1,7 +1,7 @@
 import { LAYOUT_TYPES } from '../types'
 
 const INITIAL_STATE = {
-    activeComponent: (window.scrollY / (window.innerHeight - 100)),
+    activeComponent: (window.scrollY / (window.innerHeight - 100))
 }
 
 export default function (state = INITIAL_STATE, action) {

@@ -4,10 +4,6 @@ import Icons from '../../assets/icons'
 import './styles.css'
 
 const PosedNav = posed.div({
-    hoverable: true,
-    init: {
-        background: 'rgba(237,227,216,0.75)'
-    },
     invisible: {
         opacity: 0
     },
@@ -15,12 +11,9 @@ const PosedNav = posed.div({
         y: 0,
         opacity: 1,
         transition: {
-            duration: 50
+            duration: 150
         }
     },
-    hover: {
-        background: 'rgba(237,227,216,1)'
-    }
 })
 
 const PosedNavIcon = posed.img({
@@ -28,7 +21,7 @@ const PosedNavIcon = posed.img({
     pressable: true,
     init: {
         scale: 1,
-        boxShadow: '0px 0px 0px rgba(0,0,0,0)'
+        boxShadow: '0px 0px 2px rgba(0,0,0,0.1)'
     },
     visible: {
         opacity: 1
