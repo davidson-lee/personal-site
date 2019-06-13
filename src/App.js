@@ -19,9 +19,12 @@ const App = ({activeComponent, handleScroll}) => {
     { title: 'aboutMe', ref: useRef(null) },
   ]
 
+  let scrollPosition = useRef(window.scrollY)
+
   useEffect(() => {
     window.addEventListener('scroll', 
       _.throttle(() => {
+        scrollPosition.current = window.scrollY
         if (window.scrollY < window.innerHeight * (window.innerWidth < 810 ? 0.5 : 0.25)) {
           if (activeComponent !== 0) {
             handleScroll(0)

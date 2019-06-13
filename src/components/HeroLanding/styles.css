@@ -10,9 +10,11 @@
     z-index: -1;
     min-width: 100%;
     min-height: 100%;
-    float: left;
-    top: 0;
-    padding: none;
+    width: auto;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     position: fixed;
 }
 
@@ -60,6 +62,7 @@
     object-fit: contain;
     height: 100%;
     border-radius: 50%;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
 }
 
 .hero-bottom-bar:hover {

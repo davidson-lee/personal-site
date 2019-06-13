@@ -162,7 +162,6 @@
         font-size: 2.3em;
         text-align: center;
         padding-left: 0;
-        width: 90%;
         margin-bottom: 15px;
     }
     .aboutme-description-subtitle {
@@ -186,12 +185,40 @@
         flex-flow: column nowrap;
         align-items: center;
     }
+    .aboutme-hand {
+        height: 3em;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
     .toggle-footer {
         font-size: 1.5em;
+        height: 60px;
     }
     .footer-icon {
         margin-left: 10px;
         height: 20px;
         filter: invert(100%)
+    }
+}
+@media only screen and (max-width: 800px) and (max-height: 300px) {
+    .aboutme-description-contents {
+        width: 45%;
+        min-height: 80vh;
+    }
+    .aboutme-contact-contents {
+        width: 45%;
+        min-height: 80vh;
+        text-align: center;
+    }
+    .skill-icon {
+        object-fit: contain;
+        max-height: 100%;
+        max-width: 100%;
+    }
+    .aboutme-description-container {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        align-items: center;
     }
 }

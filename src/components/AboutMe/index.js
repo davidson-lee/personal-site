@@ -137,14 +137,20 @@ const PosedFooter = posed.div({
 const PosedFooterText = posed.div({
     hoverable: true,
     init: {
-        x: 0,
+        scale: 1
     },
     hover: {
-        x: '10px',
+        scale: 1.05
     }
 })
 
 const PosedFooterIcon = posed.img({
+    idle: {
+        x: 0
+    },
+    motion: {
+        x: '10px'
+    },
     inactive: {
         rotate: '90deg'
     },
@@ -219,9 +225,9 @@ const AboutMe = ({ navRef, activeComponent }) => {
         }, 1000)
     })
     useEffect(() => {
-        Object.keys(Icons).map(key => {
-            const img = new Image();
-            img.src = Icons[key].fileName;
+        Object.keys(Icons).forEach(key => {
+            console.log(key)
+            new Image().src = Icons[key].fileName;
         })
     }, [])
     const skills = [
@@ -239,16 +245,13 @@ const AboutMe = ({ navRef, activeComponent }) => {
         'django'
     ]
     return (
-        <div ref={navRef} style={{height: window.innerWidth > 810 ? '100vh' : window.innerHeight-80, marginBottom: window.innerWidth > 810 ? 0 : '80px'}} className='aboutme'>
+        <div ref={navRef} style={{minHeight: window.innerWidth > 810 ? '100vh' : window.innerHeight-60, marginBottom: window.innerWidth > 810 ? 0 : '60px'}} className='aboutme'>
                 <PosedContents pose={activeComponent > 0 ? 'visible' : 'invisible'} className='aboutme-contents'>
                     <PosedHeader className='aboutme-description-header'>
                         <h1 className='aboutme-description-title'>
                         Hi, I'm Davidson!
                         </h1>
-                        {window.innerWidth > 810 ?
-                            <PosedHand pose={repeatState ? 'idle' : 'rotated'} src={Icons.hand} className='aboutme-hand' alt='hand' />
-                            : null
-                        }
+                        <PosedHand pose={repeatState ? 'idle' : 'rotated'} src={Icons.hand} className='aboutme-hand' alt='hand' />
                     </PosedHeader>
                     <div pose={activeComponent > 0 ? 'visible' : 'invisible'} className='aboutme-description-container'>
                         <div className='aboutme-description-contents'>
@@ -270,7 +273,7 @@ const AboutMe = ({ navRef, activeComponent }) => {
                         <PosedResume className='aboutme-contact-contents'>
                             {skills.map(e => 
                                 activeSkill === e
-                                    ? <PosedSkillIcon initialPose='onEnter' pose='enter' src={Icons[activeSkill]} alt='icon' className='skill-icon' />
+                                    ? <PosedSkillIcon initialPose='onEnter' key={e} pose='enter' src={Icons[activeSkill]} alt='icon' className='skill-icon' />
                                     : null
                             )}
                         </PosedResume>
@@ -279,12 +282,12 @@ const AboutMe = ({ navRef, activeComponent }) => {
                 <PosedFooter pose={[activeComponent > 0 ? 'visible' : 'invisible', footer ? 'active' : 'inactive']} onClick={()=> setFooter(!footer)} className='toggle-footer'>
                     <PosedFooterText style={{display: 'flex', alignItems: 'center'}}>
                         <h3>Get In Touch!</h3>
-                        <PosedFooterIcon src={Icons.footer} className='footer-icon' alt='footer' />
+                        <PosedFooterIcon pose={repeatState ? 'motion' : 'idle'} src={Icons.footer} className='footer-icon' alt='footer' />
                     </PosedFooterText>
-                    <div className='button' onClick={() => window.open('http://linkedin.com/in/davidsonlee')}>
+                    <div className='button' onClick={() => {if (footer) window.open('http://linkedin.com/in/davidsonlee')}}>
                         <PosedButton src={Icons.linkedin} className='button-image' alt='linkedin' />
                     </div>
-                    <div className='button' onClick={() => window.open('http://linkedin.com/in/davidsonlee')}>
+                    <div className='button' onClick={() => {if (footer) window.open('http://github.com/davidson-lee')}}>
                         <PosedButton src={Icons.githubSmall} className='button-image' alt='linkedin' />
                     </div>
                 </PosedFooter>

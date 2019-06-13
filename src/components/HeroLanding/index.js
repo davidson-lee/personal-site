@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import _ from 'lodash'
 import posed from 'react-pose'
 import Icons from '../../assets/icons'
 import Backgrounds from '../../assets/backgrounds'
-import { connect } from 'react-redux'
 import './styles.css'
 
 const PosedLabel = posed.div({
@@ -73,10 +73,26 @@ const PosedNavIcon = posed.img({
     },
 })
 
-const HeroLanding = ({ isMobile, componentRefs, scrollToRef }) => {
+const HeroLanding = ({ componentRefs, scrollToRef }) => {
+    const [scrollPosition, setScrollPosition] = useState(window.scrollY)
+    useEffect(() => {
+        window.addEventListener('scroll', 
+          _.throttle(() => {
+              setScrollPosition(window.scrollY)
+          }, 1),
+          {passive:true}
+        )
+        return window.removeEventListener('scroll', 
+        _.throttle(() => {
+            setScrollPosition(window.scrollY)
+        }, 1),
+        {passive:true}
+      )
+      }, [])
+    console.log( + 'rerender')
     return (
         <div ref={componentRefs[0].ref} className='hero-container' style={{height: window.innerWidth < 810 ? window.innerHeight : '100vh'}}>
-            <video id='background-video' loop autoPlay muted>
+            <video style={{paddingBottom: `${window.innerWidth < 810 ? scrollPosition / 10 : scrollPosition / 50}%`}} id='background-video' loop autoPlay muted>
                 <source src={Backgrounds.hero} type='video/mp4' />
             </video> 
             <PosedLabel initialPose='init' pose='enter' className='hero-label'>
@@ -99,10 +115,4 @@ const HeroLanding = ({ isMobile, componentRefs, scrollToRef }) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-      isMobile: state.layout.isMobile
-    }
-}
-
-export default connect(mapStateToProps)(HeroLanding);
+export default HeroLanding;
