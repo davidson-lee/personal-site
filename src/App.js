@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from 'react';
 import _ from 'lodash'
 import HeroLanding from './components/HeroLanding'
 import SideNav from './components/SideNav'
-import FooterNav from './components/FooterNav'
 import AboutMe from './components/AboutMe'
 
 import { connect } from 'react-redux'
@@ -38,10 +37,9 @@ const App = ({activeComponent, handleScroll}) => {
   }, [handleScroll, activeComponent])
 
   return (
-      <div className="App" style={{width: window.innerWidth > 810 ? '100%' : window.innderWidth}}>
+      <div className="App">
         <HeroLanding componentRefs={componentRefs} scrollToRef={scrollToRef}/>
-        <AboutMe navRef={componentRefs[1].ref} activeComponent={activeComponent}/>
-        <FooterNav activeComponent={activeComponent}/>
+        <AboutMe navRef={componentRefs[1].ref}/>
         {window.innerWidth > 810 
           ? <SideNav componentRefs={componentRefs} scrollToRef={scrollToRef} activeComponent={activeComponent}/>
           : null
@@ -51,7 +49,6 @@ const App = ({activeComponent, handleScroll}) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     activeComponent: state.layout.activeComponent,
   }

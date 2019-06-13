@@ -1,3 +1,4 @@
 export const LAYOUT_TYPES = {
     SET_ACTIVE: 'SET_ACTIVE',
+    SET_FOOTER: 'SET_FOOTER'
 }

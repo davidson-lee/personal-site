@@ -49,10 +49,6 @@ const PosedTitle = posed.h2({
 })
 
 const PosedBottomNav = posed.div({
-    hoverable: true,
-    init: {
-        background: 'rgba(71,82,43,0.55)'
-    },
     invisible: {
         y:'100%',
         opacity: 0
@@ -65,9 +61,6 @@ const PosedBottomNav = posed.div({
             duration: 500
         }
     },
-    hover: {
-        background: 'rgba(71,82,43,1)'
-    }
 })
 
 const PosedNavIcon = posed.img({
@@ -90,21 +83,18 @@ const HeroLanding = ({ isMobile, componentRefs, scrollToRef }) => {
                 <PosedName className='hero-name'>Davidson Lee</PosedName>
                 <PosedTitle className='hero-title'>Full-Stack Developer</PosedTitle>
             </PosedLabel>
-            {window.innerWidth > 810 
-                ? <PosedBottomNav 
-                    className='hero-bottom-bar' 
-                    onClick={() => scrollToRef(componentRefs[1].ref)}
-                    initialPose='invisible'
-                    pose='enter'
-                  >
-                    <PosedNavIcon 
-                        className='sidenav-icon' 
-                        src={Icons.chevronDown}
-                        alt='down'
-                    />
-                  </PosedBottomNav> 
-                : null
-            }
+            <PosedBottomNav 
+                className='hero-bottom-bar' 
+                onClick={() => scrollToRef(componentRefs[1].ref)}
+                initialPose='invisible'
+                pose='enter'
+                >
+                <PosedNavIcon 
+                    className='hero-nav-icon' 
+                    src={Icons.chevronDown}
+                    alt='down'
+                />
+            </PosedBottomNav> 
         </div>
     )
 }

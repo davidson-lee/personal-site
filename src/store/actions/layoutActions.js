@@ -6,3 +6,10 @@ export const handleScroll = (activeComponent) => dispatch => {
         payload: activeComponent
     })
 }
+
+export const handleFooter = (footerVisible) => dispatch => {
+    dispatch({
+        type: LAYOUT_TYPES.SET_FOOTER,
+        payload: footerVisible
+    })
+}

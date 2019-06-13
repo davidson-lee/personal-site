@@ -1,71 +1,46 @@
 .aboutme {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 100vh;
-    width: 100%;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.aboutme-container {
-    display: flex;
-    flex-flow: column nowrap;
     justify-content: space-evenly;
     align-items: center;
-    min-height: 100vh;
     width: 100%;
+    background: rgb(243,237,234);
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.5)
 }
-
-/* .aboutme-photo-container {
-    position: relative;
-    width: 25%;
-}
-
-.aboutme-photo {
-    width: 85%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    object-fit: contain;
-    margin: auto;
-    border: 2px solid black;
-    border-radius: 10px;
-} */
 
 .aboutme-contents {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    height: 100%;
     width: 100%;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
-    background: linear-gradient(to right, rgba(237,227,216,0.8), rgba(255,255,255,0.6));
 }
 
 .aboutme-description-header {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    width: 100%; 
+    margin-top: 5%;
+    width: 100%;
 }
 
 .aboutme-description-title {
     font-size: 4.0em;
-    border-bottom: 1px solid black;
     text-shadow: 0px 0px 2px rgba(0,0,0,0.3);
     text-align: center;
-    padding-bottom: 15px;
-    width: 70%;
-    margin-bottom: 15px;
+    margin: 0;
+}
+
+.aboutme-hand {
+    height: 5em;
+    margin-left: 20px;
 }
 
 .aboutme-description-subtitle {
     font-size: 2em;
     font-weight: 400;
-    letter-spacing: 0px;
     font-stretch: condensed;
     text-shadow: 0px 0px 2px rgba(0,0,0,0.3);
 }
@@ -92,18 +67,16 @@
     flex-flow: column nowrap;
     justify-content: space-evenly;
     width: 45%;
-    border-right: 1px solid black;
     text-align: left;
 }
 
 .aboutme-contact-contents {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     width: 45%;
     text-align: center;
-    border-left: 1px solid black;
 }
 
 .aboutme-description-container {
@@ -112,50 +85,113 @@
     padding-top: 3%;
     padding-bottom: 5%;
     width: 70%;
-    min-height: 45vh;
+    min-height: 50vh;
     justify-content: space-evenly;
 }
 
+.toggle-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    font-size: 1.7em;
+    background: black;
+    color: white;
+}
+
+.toggle-footer :hover {
+    cursor: pointer;
+}
+
+.footer-icon {
+    margin-left: 20px;
+    height: 30px;
+    filter: invert(100%)
+}
+
+.button {
+    height: 40px;
+    width: auto;
+    padding: 5px 10px;
+}
+
+.button :hover {
+    cursor: pointer;
+}
+
+.button-image {
+    object-fit: cover;
+    height: 100%;
+}
+
+.skill-icon {
+    object-fit: contain;
+    max-height: 50vh;
+    max-width: 80%;
+}
+
 @media only screen and (max-width: 800px) {
-    .aboutme-container {
-        width: 100%;
-    }
     .aboutme-description-contents {
-        width: 85%;
-        border-right: 0
+        width: 90%;
     }
     .aboutme-contact-contents {
-        width: 85%;
+        width: 90%;
+        height: 25vh;
         text-align: center;
-        border-left: 0
+    }
+    .skill-icon {
+        object-fit: contain;
+        max-height: 15vh;
+        max-width: 70%;
+    }
+    .aboutme-skill {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 1.1em;
+        margin: 0.2em;
+        background: white;
+        padding: 0.1em 0.2em;
     }
     .aboutme-description-title {
-        font-size: 2.5em;
-        border-bottom: 1px solid black;
+        font-size: 2.3em;
         text-align: center;
         padding-left: 0;
-        padding-bottom: 15px;
-        width: 85%;
+        width: 90%;
         margin-bottom: 15px;
     }
     .aboutme-description-subtitle {
-        font-size: 1.5em;
+        font-size: 1.4em;
         font-weight: 400;
         text-align: center;
         margin-top: 5%;
         margin-bottom: 5%;
     }
     .aboutme-description-main {
-        font-size: 1.2em;
+        font-size: 1.1em;
         justify-content: center;
         margin-right: 0;
     }
     .aboutme-description-container {
         padding-top: 0;
+        padding-bottom: 0;
+        margin: 0;
         width: 90%;
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
-        padding-bottom: 80px;
+    }
+    .toggle-footer {
+        font-size: 1.5em;
+    }
+    .footer-icon {
+        margin-left: 10px;
+        height: 20px;
+        filter: invert(100%)
     }
 }
