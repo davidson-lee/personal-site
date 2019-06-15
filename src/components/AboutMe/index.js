@@ -284,8 +284,8 @@ const AboutMe = ({ navRef, activeComponent }) => {
                         </PosedResume>
                     </div>
                 </PosedContents>
-                <PosedFooter pose={[activeComponent > 0 ? 'visible' : 'invisible', footer ? 'active' : 'inactive']} onClick={()=> setFooter(!footer)} className='toggle-footer'>
-                    <PosedFooterText style={{display: 'flex', alignItems: 'center'}}>
+                <PosedFooter pose={[activeComponent > 0 ? 'visible' : 'invisible', footer ? 'active' : 'inactive']} className='toggle-footer'>
+                    <PosedFooterText onClick={()=> setFooter(!footer)} style={{display: 'flex', alignItems: 'center'}}>
                         <h3>Get In Touch!</h3>
                         <PosedFooterIcon pose={repeatState ? 'motion' : 'idle'} src={Icons.footer} className='footer-icon' alt='footer' />
                     </PosedFooterText>
