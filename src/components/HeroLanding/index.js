@@ -92,7 +92,7 @@ const HeroLanding = ({ componentRefs, scrollToRef }) => {
     console.log( + 'rerender')
     return (
         <div ref={componentRefs[0].ref} className='hero-container' style={{height: window.innerWidth < 810 ? window.innerHeight : '100vh'}}>
-            <video style={{paddingBottom: `${window.innerWidth < 810 ? scrollPosition / 10 : scrollPosition / 50}%`}} id='background-video' loop autoPlay muted>
+            <video style={{paddingBottom: `${window.innerWidth < 810 ? scrollPosition / 10 : scrollPosition / 70}%`}} id='background-video' loop autoPlay muted>
                 <source src={Backgrounds.hero} type='video/mp4' />
             </video> 
             <PosedLabel initialPose='init' pose='enter' className='hero-label'>

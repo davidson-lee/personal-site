@@ -76,7 +76,8 @@ const PosedSkills = posed.div({
 const PosedSkill = posed.div({
     hoverable: true,
     init: {
-        background: 'rgba(255,244,45,0.4)'
+        background: 'rgba(255,244,45,0.4)',
+        scale: 1
     },
     invisible: {
         y:'-100%',
@@ -91,7 +92,7 @@ const PosedSkill = posed.div({
         }
     },
     active: {
-        scale: 1.1,
+        scale: 1.15,
         background: 'rgba(255,244,45,1)'
     },
     inactive: {
@@ -99,7 +100,11 @@ const PosedSkill = posed.div({
         background: 'rgba(255,244,45,0.4)'
     },
     hover: {
-        background: 'rgba(255,244,45,1)'
+        background: 'rgba(255,244,45,1)',
+        scale: 1.05,
+        transition: {
+            duration: 100
+        }
     }
 })
 
@@ -123,7 +128,7 @@ const PosedFooter = posed.div({
         transition: {
             type: 'tween',
             duration: 300
-        }
+        },
     },
     invisible: {
         y: '100%',
@@ -245,7 +250,7 @@ const AboutMe = ({ navRef, activeComponent }) => {
         'django'
     ]
     return (
-        <div ref={navRef} style={{minHeight: window.innerWidth > 810 ? '100vh' : window.innerHeight-60, marginBottom: window.innerWidth > 810 ? 0 : '60px'}} className='aboutme'>
+        <div ref={navRef} style={{minHeight: window.innerWidth > 810 ? 'calc(100vh - 80px)' : window.innerHeight-60, marginBottom: window.innerWidth > 810 ? '80px' : '60px'}} className='aboutme'>
                 <PosedContents pose={activeComponent > 0 ? 'visible' : 'invisible'} className='aboutme-contents'>
                     <PosedHeader className='aboutme-description-header'>
                         <h1 className='aboutme-description-title'>
@@ -256,7 +261,7 @@ const AboutMe = ({ navRef, activeComponent }) => {
                     <div pose={activeComponent > 0 ? 'visible' : 'invisible'} className='aboutme-description-container'>
                         <div className='aboutme-description-contents'>
                             <PosedTitleLeft className='aboutme-description-subtitle'>
-                                I'm a <strong style={{color: 'rgb(180,50,180)'}}>Full-Stack Developer</strong> 
+                                I'm a <strong style={{color: 'rgb(180,50,180)'}}>Full-Stack Developer</strong>
                                 <br />based in <strong style={{color: 'rgb(230,60,60)'}}>Toronto</strong> specializing in
                                 <br /><strong style={{color: 'rgb(60,60,230)'}}>React</strong> and <strong style={{color: 'rgb(60,150,60)'}}>Node.js</strong>.
                                 <br />
